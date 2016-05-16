@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>539</width>
-    <height>696</height>
+    <height>702</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,47 +37,6 @@
      <string>Clear</string>
     </property>
    </widget>
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>111</width>
-      <height>116</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="spacing">
-      <number>2</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="PortRefresh">
-       <property name="text">
-        <string>Refresh</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="baudBox"/>
-     </item>
-     <item>
-      <widget class="QComboBox" name="portBox"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="connectButton">
-       <property name="text">
-        <string>Connect</string>
-       </property>
-       <property name="checkable">
-        <bool>true</bool>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QPushButton" name="sendButton">
     <property name="geometry">
      <rect>
@@ -91,60 +50,152 @@
      <string>Send</string>
     </property>
    </widget>
-   <widget class="QCheckBox" name="allCheckBox">
+   <widget class="QPushButton" name="PortRefresh">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>130</y>
-      <width>97</width>
-      <height>22</height>
+      <x>20</x>
+      <y>10</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>111</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Refresh</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connectButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>111</width>
+      <height>31</height>
+     </size>
+    </property>
+    <property name="text">
+     <string>Connect</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="latEdit">
+    <property name="geometry">
+     <rect>
+      <x>257</x>
+      <y>11</y>
+      <width>263</width>
+      <height>33</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="portBox">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>111</width>
+      <height>31</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="lonEdit">
+    <property name="geometry">
+     <rect>
+      <x>257</x>
+      <y>50</y>
+      <width>263</width>
+      <height>32</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>181</x>
+      <y>88</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Show all</string>
+     <string>Radius</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>10</y>
-      <width>281</width>
-      <height>111</height>
+      <x>181</x>
+      <y>11</y>
+      <width>71</width>
+      <height>31</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="1">
-      <widget class="QTextEdit" name="latEdit"/>
-     </item>
-     <item row="2" column="1">
-      <widget class="QTextEdit" name="radiusEdit"/>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Lat</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Lon</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
-       <property name="text">
-        <string>Rad</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QTextEdit" name="lonEdit"/>
-     </item>
-    </layout>
+    <property name="text">
+     <string>Lattitude</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="radiusEdit">
+    <property name="geometry">
+     <rect>
+      <x>257</x>
+      <y>88</y>
+      <width>263</width>
+      <height>32</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>181</x>
+      <y>50</y>
+      <width>71</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Longitude</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -156,6 +207,12 @@
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuQuest_Box">
+    <property name="title">
+     <string>Quest Box</string>
+    </property>
+   </widget>
+   <addaction name="menuQuest_Box"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -166,6 +223,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionPreferences">
+   <property name="text">
+    <string>Preferences</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

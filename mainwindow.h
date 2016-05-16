@@ -39,7 +39,6 @@ private slots:
 
     void on_PortRefresh_released();
     void on_sendButton_released();
-    void on_portBox_currentIndexChanged(const QString &arg1);
     void on_connectButton_released();
     void on_pushButton_released();
 };

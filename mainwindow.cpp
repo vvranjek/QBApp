@@ -8,6 +8,8 @@
 #include <QThread>
 #include <QDebug>
 
+//#define DEBUG
+
 // 46.073268
 // 14.509567
 
@@ -25,16 +27,23 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QStringList _baud_rates;
     _baud_rates << "4800" << "9600" << "19200" << "38400" << "57600" << "115200" << "230400";
-    ui->baudBox->addItems(_baud_rates);
-    ui->baudBox->setCurrentIndex(ui->baudBox->findText("115200"));
+    //ui->baudBox->addItems(_baud_rates);
+    //ui->baudBox->setCurrentIndex(ui->baudBox->findText("57600"));
 
     _refresh_serial();
     connect_serial();
 
+    this->setWindowTitle("Quest Box");
+
+#ifdef DEBUG
     ui->latEdit->append("46.073268");
     ui->lonEdit->append("14.509567");
     ui->radiusEdit->append("40");
-
+#else
+    ui->latEdit->setPlaceholderText("46.073268");
+    ui->lonEdit->setPlaceholderText("14.509567");
+    ui->radiusEdit->setPlaceholderText("40");
+#endif
 }
 
 void MainWindow::main_slot()
@@ -60,25 +69,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_portBox_currentIndexChanged(const QString &arg1)
-{
-    // _refresh_serial();
-}
-
-
 int MainWindow::_refresh_serial(){
     ui->portBox->clear();
     // Serch for serial ports and put them in portBox
     foreach (QextPortInfo info, QextSerialEnumerator::getPorts()){
-        if(info.portName.contains("ACM") || info.portName.contains("USB") && !ui->allCheckBox->isChecked()) {
-            ui->portBox->addItem(info.portName);
-            ui->portBox->setCurrentIndex(ui->portBox->findText(info.portName));
-        }
-        else {
-            ui->portBox->addItem(info.portName);
-            ui->portBox->setCurrentIndex(ui->portBox->findText(info.portName));
-        }
+        ui->portBox->addItem(info.portName);
+        ui->portBox->setCurrentIndex(ui->portBox->findText(info.portName));
     }
 }
 
@@ -86,7 +82,8 @@ int MainWindow::connect_serial(){
 
     port->close();
 
-    port->setBaudRate(ui->baudBox->currentText().toInt());
+    //port->setBaudRate(ui->baudBox->currentText().toInt());
+    port->setBaudRate(57600);
     port->setPortName(ui->portBox->currentText());
 
     if (!port->open(QIODevice::ReadWrite)){
@@ -114,6 +111,7 @@ void MainWindow::on_connectButton_released() {
 void MainWindow::on_sendButton_released()
 {
     std::string data;
+    ui->serialIn->clear();
 
 
     data.append("#########");
